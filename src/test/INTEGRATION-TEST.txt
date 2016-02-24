@@ -33,7 +33,7 @@ Note: Last connection information should be available for the CO alarm Id mentio
 	- propertiesFilePath: relative path of properties file from target.
 	- accessToken: required to access API resources
 	- clientId: to get the access token for a particular client_id.
-       - clientSecret: to get the access token for a particular client_secret.
+        - clientSecret: to get the access token for a particular client_secret.
 	- code: authorization code to get the access token.
 	- apiUrl: API URL.
 	- apiRedirectUrl: When we invoke the API URL, it will be redirected to this redirect URL.
