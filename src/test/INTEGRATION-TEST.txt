@@ -19,24 +19,24 @@ STEPS:
      2) Add nest extension at google chrome.
      3) Navigate to https://developer.nest.com/clients and register a client.
            Follow https://developer.nest.com/documentation/cloud/register-client to create a client.
-     4) To get an accesstoken, follow the steps after creating a client.
-     4) Go to your installed nest extension at google chrome browser and add Thermostats and CO-Alarms.
-     5) Find CO alarm Id, Thermostat Id and Structure Id and put the values in properties for smokeCOAlarmDeviceId, deviceIdThermostat and structureId accordingly.
+     4) To get an accesstoken, follow the steps in https://developers.nest.com/documentation/cloud/how-to-auth#exchange-your-authorization-code-for-an-access-token after creating a client.
+     5) Go to your installed nest extension at google chrome browser and add Thermostats and CO-Alarms.
      6) Set an event for your structure under Rush Hour Rewards via Nest Developer Tool (tool is added by Step 2).
+     7) Check 'Manual Test Active?' checkbox of all 'Smoke + CO Alarms' on the developer tool and test them manually (This is to get 'ui_color_state').
 
-Note: Last connection information should be available for the CO alarm Id mentioned in step 5.
+Note: Last connection information should be available for the CO alarm Id mentioned in step 6.
 
 3. Edit the "nest.properties" at "{NEST_CONNECTOR_HOME}/src/test/resources/artifacts/connector/config/" using valid and relevant data. Parameters to be changed are mentioned below.
 
-	- proxyDirectoryRelativePath: relative path of the Rest Request files folder from target.
-	- requestDirectoryRelativePath: relative path of proxy folder from target.
-	- propertiesFilePath: relative path of properties file from target.
-	- accessToken: required to access API resources
-	- clientId: to get the access token for a particular client_id.
-        - clientSecret: to get the access token for a particular client_secret.
-	- code: authorization code to get the access token.
-	- apiUrl: API URL.
-	- apiRedirectUrl: When we invoke the API URL, it will be redirected to this redirect URL.
+    - proxyDirectoryRelativePath: relative path of the Rest Request files folder from target.
+    - requestDirectoryRelativePath: relative path of proxy folder from target.
+    - propertiesFilePath: relative path of properties file from target.
+    - accessToken: required to access API resources
+    - clientId: to get the access token for a particular client_id.
+    - clientSecret: to get the access token for a particular client_secret.
+    - code: authorization code to get the access token.
+    - apiUrl: API URL.
+    - apiRedirectUrl: When we invoke the API URL, it will be redirected to this redirect URL.
 
 4. Following data set can be used for the first test-suite to execute.
 
@@ -51,15 +51,11 @@ Note: Last connection information should be available for the CO alarm Id mentio
 
 5. Required to change following parameters to execute test
 
-    smokeCOAlarmDeviceId: Id of smoke CO alarm.
-
-    deviceIdThermostat: Id of thermostat.
     fanTimerState: Fan timer active state. It can be true or false.
     targetTemperature: Integer value
     scale=Temperature scale. It can be 'C' or 'F'.
     temperatureMode: HVAC mode.
 
-    structureId: Id of structure.
     awayState: Away state of the structure. It can be 'home' or 'away'.
     tripId: Id of the trip.
     begin: Estimated arrival window begin time.

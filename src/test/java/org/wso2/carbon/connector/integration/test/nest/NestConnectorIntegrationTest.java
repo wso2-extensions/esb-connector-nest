@@ -120,11 +120,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getAccessToken.txt";
         String methodName = "nest_getAccessToken";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("clientId"), nestConnectorProperties.getProperty("clientSecret"), nestConnectorProperties.getProperty("code"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("clientId"),
+                nestConnectorProperties.getProperty("clientSecret"), nestConnectorProperties.getProperty("code"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             if (responseConnector.has("access_token") && !responseConnector.getString("access_token").equals("")) {
                 FileInputStream in = new FileInputStream(propertiesFilePath + "nest.properties");
                 Properties props = new Properties();
@@ -149,11 +152,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForThermostats.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"), nestConnectorProperties.getProperty("deviceIdThermostat"), "viewCurrentTemperatureFahrenheit", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"), "viewCurrentTemperatureFahrenheit",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/thermostats/" + jo.getString("deviceId") + "/ambient_temperature_f";
@@ -172,11 +178,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForThermostats.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"), nestConnectorProperties.getProperty("deviceIdThermostat"), "viewTargetTemperatureFahrenheit", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"), "viewTargetTemperatureFahrenheit",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/thermostats/" + jo.getString("deviceId") + "/target_temperature_f";
@@ -196,11 +205,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForThermostats.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"), nestConnectorProperties.getProperty("deviceIdThermostat"), "viewHumidity", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"), "viewHumidity",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/thermostats/" + jo.getString("deviceId") + "/humidity";
@@ -219,11 +231,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForThermostats.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"), nestConnectorProperties.getProperty("deviceIdThermostat"), "viewTemperatureMode", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"), "viewTemperatureMode",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/thermostats/" + jo.getString("deviceId") + "/hvac_mode";
@@ -244,9 +259,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"), nestConnectorProperties.getProperty("deviceIdThermostatInvalid"), "viewCurrentTemperatureFahrenheit", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceThermostats"),
+                nestConnectorProperties.getProperty("deviceIdThermostatInvalid"), "viewCurrentTemperatureFahrenheit",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 404);
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -261,11 +279,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewCOAlarmState", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewCOAlarmState",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/co_alarm_state";
@@ -284,11 +305,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewSmokeAlarmState", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewSmokeAlarmState",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/smoke_alarm_state";
@@ -307,11 +331,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewBatteryHealth", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewBatteryHealth",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/battery_health";
@@ -330,11 +357,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewManualTestState", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewManualTestState",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/is_manual_test_active";
@@ -353,11 +383,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewLastManualTestStatus", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewLastManualTestStatus",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/ui_color_state";
@@ -376,11 +409,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewLastManualTestTimestamp", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewLastManualTestTimestamp",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/last_manual_test_time";
@@ -399,11 +435,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewOnlineStatus", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewOnlineStatus",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/is_online";
@@ -422,11 +461,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForSmoke_COAlarms.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewLastConnectionInformation", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceId"), "viewLastConnectionInformation",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "devices/smoke_co_alarms/" + jo.getString("deviceId") + "/last_connection";
@@ -447,9 +489,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"), nestConnectorProperties.getProperty("smokeCOAlarmDeviceIdInvalid"), "viewOnlineStatus", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("deviceSmokeCOAlarms"),
+                nestConnectorProperties.getProperty("smokeCOAlarmDeviceIdInvalid"), "viewOnlineStatus",
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 404);
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -464,11 +509,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForStructures.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"), "viewThermostats", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"),
+                "viewThermostats", nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "structures/" + jo.getString("structureId") + "/thermostats";
@@ -487,11 +535,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForStructures.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"), "viewSmokeCOAlarms", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"),
+                "viewSmokeCOAlarms", nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "structures/" + jo.getString("structureId") + "/smoke_co_alarms";
@@ -510,11 +561,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForStructures.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"), "viewEnergyEventPeekStart", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"),
+                "viewEnergyEventPeekStart", nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "structures/" + jo.getString("structureId") + "/peak_period_start_time";
@@ -533,11 +587,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForStructures.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"), "viewAwayState", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"),
+                "viewAwayState", nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "structures/" + jo.getString("structureId") + "/away";
@@ -556,11 +613,14 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String jsonRequestFilePath = pathToRequestsDirectory + "getServicesForStructures.txt";
         String methodName = "nest";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"), "viewPostalCode", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureId"),
+                "viewPostalCode", nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
         try {
-            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            String responseConnector = ConnectorIntegrationUtil.sendRequestString("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             String httpMethod = "GET";
             JSONObject jo = new JSONObject(modifiedJsonString);
             String parameters = "structures/" + jo.getString("structureId") + "/postal_code";
@@ -581,9 +641,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureIdInvalid"), "viewAwayState", nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("structureIdInvalid"),
+                "viewAwayState", nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 404);
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -601,11 +664,17 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("fanTimerState"), nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("fanTimerState"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"),
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             JSONObject jo = new JSONObject(modifiedJsonString);
-            Assert.assertTrue((responseConnector.has("error") && responseConnector.getString("error").equals("Cannot change fan_timer_active while structure is away")) || (!responseConnector.has("error") && responseConnector.getString("fan_timer_active").equals(jo.getString("fanTimerState").toString())));
+            Assert.assertTrue((responseConnector.has("error")
+                    && responseConnector.getString("error").equals("Cannot change fan_timer_active while structure is away"))
+                    || (!responseConnector.has("error") && responseConnector.getString("fan_timer_active")
+                    .equals(jo.getString("fanTimerState").toString())));
         } finally {
             proxyAdmin.deleteProxy(methodName);
         }
@@ -621,9 +690,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("fanTimerStateInvalid"), nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("fanTimerStateInvalid"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 400);
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -640,14 +712,21 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("targetTemperature"), nestConnectorProperties.getProperty("scale"), nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("targetTemperature"),
+                nestConnectorProperties.getProperty("scale"), nestConnectorProperties.getProperty("deviceIdThermostat"),
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             JSONObject jo = new JSONObject(modifiedJsonString);
             if (jo.getString("scale").toString().toLowerCase().equals("f")) {
-                Assert.assertTrue((!responseConnector.has("error") && responseConnector.getString("target_temperature_f").equals(jo.getString("targetTemperature").toString())) || (responseConnector.has("error") && responseConnector.getString("error").equals("Cannot change target temperature while structure is away")));
+                Assert.assertTrue((!responseConnector.has("error") && responseConnector.getString("target_temperature_f")
+                        .equals(jo.getString("targetTemperature").toString())) || (responseConnector.has("error")
+                        && responseConnector.getString("error").equals("Cannot change target temperature while structure is away")));
             } else if (jo.getString("scale").toString().toLowerCase().equals("c")) {
-                Assert.assertTrue((!responseConnector.has("error") && responseConnector.getString("target_temperature_c").equals(jo.getString("targetTemperature").toString())) || (responseConnector.has("error") && responseConnector.getString("error").equals("Cannot change target temperature while structure is away")));
+                Assert.assertTrue((!responseConnector.has("error") && responseConnector.getString("target_temperature_c")
+                        .equals(jo.getString("targetTemperature").toString())) || (responseConnector.has("error")
+                        && responseConnector.getString("error").equals("Cannot change target temperature while structure is away")));
             }
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -664,9 +743,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("targetTemperatureInvalid"), nestConnectorProperties.getProperty("scale"), nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("targetTemperatureInvalid"),
+                nestConnectorProperties.getProperty("scale"), nestConnectorProperties.getProperty("deviceIdThermostat"),
+                nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 400);
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -683,9 +765,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("temperatureMode"), nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("temperatureMode"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             JSONObject jo = new JSONObject(modifiedJsonString);
             Assert.assertTrue(responseConnector.getString("hvac_mode").equals(jo.getString("temperatureMode").toString()));
         } finally {
@@ -703,9 +788,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("temperatureModeInvalid"), nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("temperatureModeInvalid"),
+                nestConnectorProperties.getProperty("deviceIdThermostat"), nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 400);
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -715,16 +803,20 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
     /**
      * Test case for setAwayState method.
      */
-    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"setFanTimer", "setTargetTemperature"}, priority = 2, description = "nest {setAwayState} integration test.")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"setFanTimer", "setTargetTemperature"}, priority = 2,
+            description = "nest {setAwayState} integration test.")
     public void setAwayState() throws Exception {
         String jsonRequestFilePath = pathToRequestsDirectory + "setAwayState.txt";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("awayState"), nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("awayState"),
+                nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             JSONObject jo = new JSONObject(modifiedJsonString);
             Assert.assertTrue(responseConnector.getString("away").equals(jo.getString("awayState").toString()));
         } finally {
@@ -742,9 +834,12 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("awayStateInvalid"), nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("awayStateInvalid"),
+                nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 400);
         } finally {
             proxyAdmin.deleteProxy(methodName);
@@ -754,18 +849,27 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
     /**
      * Test case for setETA method.
      */
-    @Test(groups = {"wso2.esb"}, priority = 2, dependsOnMethods = {"setAwayState"}, description = "nest {setETA} integration test.")
+    @Test(groups = {"wso2.esb"}, priority = 2, dependsOnMethods = {"setAwayState"},
+            description = "nest {setETA} integration test.")
     public void setETA() throws Exception {
         String jsonRequestFilePath = pathToRequestsDirectory + "setETA.txt";
         final String jsonString = ConnectorIntegrationUtil.getFileContent(jsonRequestFilePath);
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("tripId"), nestConnectorProperties.getProperty("begin"), nestConnectorProperties.getProperty("end"), nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("tripId"),
+                nestConnectorProperties.getProperty("begin"), nestConnectorProperties.getProperty("end"),
+                nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName), modifiedJsonString);
+            JSONObject responseConnector = ConnectorIntegrationUtil.sendRequest("POST", getProxyServiceURL(methodName),
+                    modifiedJsonString);
             JSONObject jo = new JSONObject(modifiedJsonString);
-            Assert.assertTrue((responseConnector.has("error") && responseConnector.getString("error").equals("Not in away mode")) || (!responseConnector.has("error") && (responseConnector.getString("trip_id").equals(jo.getString("tripId").toString()) && responseConnector.getString("estimated_arrival_window_begin").equals(jo.getString("begin").toString()) && responseConnector.getString("estimated_arrival_window_end").equals(jo.getString("end").toString()))));
+            Assert.assertTrue((responseConnector.has("error") && responseConnector.getString("error").equals("Not in away mode"))
+                    || (!responseConnector.has("error")
+                    && (responseConnector.getString("trip_id").equals(jo.getString("tripId").toString())
+                    && responseConnector.getString("estimated_arrival_window_begin").equals(jo.getString("begin").toString())
+                    && responseConnector.getString("estimated_arrival_window_end").equals(jo.getString("end").toString()))));
         } finally {
             proxyAdmin.deleteProxy(methodName);
         }
@@ -781,9 +885,13 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
         String methodName = "nest";
         final String proxyFilePath = "file:///" + pathToProxiesDirectory + methodName + ".xml";
         proxyAdmin.addProxyService(new DataHandler(new URL(proxyFilePath)));
-        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("tripId"), nestConnectorProperties.getProperty("beginInvalid"), nestConnectorProperties.getProperty("end"), nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"), nestConnectorProperties.getProperty("apiRedirectUrl"));
+        String modifiedJsonString = String.format(jsonString, nestConnectorProperties.getProperty("tripId"),
+                nestConnectorProperties.getProperty("beginInvalid"), nestConnectorProperties.getProperty("end"),
+                nestConnectorProperties.getProperty("structureId"), nestConnectorProperties.getProperty("accessToken"),
+                nestConnectorProperties.getProperty("apiRedirectUrl"));
         try {
-            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName), modifiedJsonString);
+            int responseHeader = ConnectorIntegrationUtil.sendRequestToRetriveHeaders(getProxyServiceURL(methodName),
+                    modifiedJsonString);
             Assert.assertTrue(responseHeader == 400);
         } finally {
             proxyAdmin.deleteProxy(methodName);
