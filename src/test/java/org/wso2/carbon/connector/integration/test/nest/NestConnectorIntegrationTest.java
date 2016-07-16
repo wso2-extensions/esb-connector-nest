@@ -51,7 +51,7 @@ public class NestConnectorIntegrationTest extends ESBIntegrationTest {
 
     private String repoLocation = null;
 
-    private String nestConnectorFileName = CONNECTOR_NAME + "-connector-1.0.1.zip";
+    private String nestConnectorFileName = CONNECTOR_NAME + "-connector-1.0.2-SNAPSHOT.zip";
 
     private Properties nestConnectorProperties = null;
 
