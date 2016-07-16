@@ -6,13 +6,13 @@ Pre-requisites:
 
 Tested Platform: 
 
-- Mac OSx 10.9
-- WSO2 ESB wso2esb-4.9.0
+- Mac OSx 10.10.3
+- WSO2 ESB 4.9.0, ESB 5.0.0-SNAPSHOT
 - Java 1.7
 
 STEPS:
 
-1. Make sure the Download the ESB 4.9.0.zip file at "{NEST_CONNECTOR_HOME}/repository/".
+1. Make sure the Download the ESB 5.0.0-SNAPSHOT.zip file at "{NEST_CONNECTOR_HOME}/repository/".
 
 2. Follow these steps to setup Nest
      1) Navigate to https://developer.nest.com/ and create an account.
