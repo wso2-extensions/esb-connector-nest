@@ -22,6 +22,6 @@
         <dependency component="authorization"/>
         <dependency component="putOperations"/>
         <dependency component="getOperations"/>
-        <description>wso2 sample connector library</description>
+        <description>wso2 connector library for Nest</description>
     </component>
 </connector>
