@@ -4,7 +4,7 @@
     "category": "IoT",
     "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/Nest+Connector",
     "description": "The Nest connector allows you to access the Nest API through the WSO2 ESB. Nest API is a real-time data API, offering subscription-based access to data shared by Nest devices. It allows the user to control the devices in the home but more than just on/off the devices, it makes the house more thoughtful one. This API server use Firebase protocols to communicate with Nest in real-time.",
-    "status": "Active",
+    "status": "Inactive",
     "labels": [
         "connector"
     ],
